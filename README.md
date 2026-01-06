@@ -1,6 +1,7 @@
 # mToolbox
 
 ![Current shelf look](assets/screenshots/current_toolbox.png)
+
 A collection of personal python based tools for Maya for rigging purposes
 
 ## Overview
