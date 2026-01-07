@@ -10,6 +10,5 @@ def create_locator():
 
     # snap to selection
     if selection:
-        last_selected = selection[-1]
-        constraint = cmds.parentConstraint(last_selected, loc, mo=False) # snaps to last obj
+        constraint = cmds.parentConstraint(selection[-1], loc, mo=False) # snaps to last obj
         cmds.delete(constraint)
