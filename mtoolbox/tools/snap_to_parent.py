@@ -3,10 +3,10 @@ from mtoolbox.utils.selection import get_selection
 
 def snap_to_parent():
     """
-    Snaps selected objects to the first selection
+    Snaps transform (T/R/S) of selected objects to the first selection
 
     When selected:
-    - First object is the final locaton
+    - First object is the final location
     - All other objects are snapped to the first
     """
     selection = get_selection("Snap to Parent")
