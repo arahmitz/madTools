@@ -14,9 +14,11 @@ Macros for used commands such as:
 - Smarter Create Locator (at selection/at world origin)
 - Snap To Average 
 - Snap To Parent (for multiple objects)
+- Create Joint Chain (customizable)
 
 Next plans:
-- Create Joint Chain (customizable)
+- Create a register shelf script
+- Create UI window with all the tools
 
 ## Installaton: 
 1. Clone the repo into a folder
