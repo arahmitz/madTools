@@ -1,6 +1,6 @@
 # mToolbox
 
-![Current shelf look](assets/screenshots/current_toolbox.png)
+![Current shelf look](mtoolbox/assets/screenshots/current_toolbox.png)
 
 A collection of personal python based tools for Maya for rigging purposes
 
@@ -22,10 +22,6 @@ Next plans:
 
 ## Installaton: 
 1. Clone the repo into a folder
-2. Move the folder into `maya/####/scripts/`
-3. Register buttons using 
-```
-from mtoolbox.tools.SCRIPT_NAME import SCRIPT NAME
-SCRIPT_NAME()
-```
-4. Edit popup and select icons from `mtoolbox/icons` folder with the correct name
+2. Copy `mtoolbox` into your `maya/####/scripts` folder
+3. Open `mtoolbox` and copy `icons` folder into `maya/2022/prefs/icons/mtoolbox` folder (you will need to create it)
+4. Going back to `maya/####/scripts/mtoolbox` drag & drop install.py into your viewport
