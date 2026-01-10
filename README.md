@@ -17,9 +17,19 @@ Macros for used commands such as:
 - Create Joint Chain (customizable)
 
 Next plans:
-- Create UI window with all the tools
+- Dedicated UI window (PySide) to bundle all the tools
+- Customization options for Create Joint Chain
 
 ## Installaton: 
-1. Clone repo and extract it
-2. Copy `mtoolbox` into your `maya/####/scripts` folder
-3. Drag and drop `install_drag_n_drop.py` into your viewport
+1. Clone or download this repository
+2. Copy the `mtoolbox` folder into your `maya/####/scripts/` folder
+3. Drag and drop `install_drag_n_drop.py` into the Maya viewport
+4. A new shelf called `mToolbox` will be created automatically
+
+## Notes: 
+- Icons are installed automatically
+- Tools are standalone python modules and can be installed one by one via shelfButton command:
+```
+from mtoolbox.tools.MODULE_NAME import MODULE_NAME 
+MODULE_NAME()"
+```
