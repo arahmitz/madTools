@@ -44,7 +44,7 @@ Right-click the button -> **EDIT** -> modify the command:
 ```from mtoolbox.tools.create_joints import create_joints
 create_joints(3, 'joint', True)",
 ```
-You can change `create_joints(NUMBER_OF_JOINTS,'NAME', AFFIX)
+You can change `create_joints(NUMBER_OF_JOINTS,'NAME', AFFIX)`
 NUMBER_OF_JOINTS -> has to be an integer, 1 is the minimum
 'NAME' -> can be any string, remember to put it in ''
 AFFIX -> `True` or `False`
