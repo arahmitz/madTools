@@ -178,7 +178,6 @@ class MToolboxUI(QtWidgets.QDialog):
 
         import importlib
         import mtoolbox.tools.create_joints as create_joints
-        importlib.reload(create_joints)
         create_joints.create_joints(joint_count, base_name, add_affix)
     
     def on_snap_to_parent(self):
@@ -233,6 +232,3 @@ def show_ui():
 
     win = MToolboxUI(parent=maya_parent)
     win.show()
-
-
-show_ui()
