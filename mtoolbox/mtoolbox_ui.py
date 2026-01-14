@@ -10,6 +10,8 @@ import mtoolbox.tools.delete_history as delete_history
 import mtoolbox.tools.freeze_transforms as freeze_transforms
 import mtoolbox.tools.toggle_lra as toggle_lra
 import mtoolbox.tools.create_locator as create_locator
+import mtoolbox.tools.joint_zso as joint_zso
+import mtoolbox.tools.point_to_average as point_to_average
 
 toolbox_path = os.path.join(cmds.internalVar(userScriptDir=True), 'mtoolbox')
 if toolbox_path not in sys.path:
@@ -71,7 +73,7 @@ class MToolboxUI(QtWidgets.QDialog):
         self.create_joints_button.setToolTip(create_joints.create_joints.__doc__)
 
         # --------------------------------------
-        # Snap to Parent & Snap to Average Tools
+        # Snap/Spatial Ops
         # --------------------------------------
 
         self.stp_button = QtWidgets.QPushButton("Snap To Parent")
@@ -81,27 +83,39 @@ class MToolboxUI(QtWidgets.QDialog):
         self.sta_button = QtWidgets.QPushButton("Snap To Average")
         self.sta_button.clicked.connect(self.on_snap_to_average)
         self.sta_button.setToolTip(snap_to_average.snap_to_average.__doc__)
-        
-        # ---------------------
-        # Joint Operations Grid
-        # ---------------------
 
-        self.sel_hie_button = QtWidgets.QPushButton("Select Hierarchy")
-        self.sel_hie_button.clicked.connect(self.on_select_hierarchy)
-        self.sel_hie_button.setToolTip(select_hierarchy.select_hierarchy.__doc__)
-        
-     
-        self.del_his_button = QtWidgets.QPushButton("Delete History")
-        self.del_his_button.clicked.connect(self.on_delete_history)
-        self.del_his_button.setToolTip(delete_history.delete_history.__doc__)
+        self.poi_to_avg_buttton = QtWidgets.QPushButton("Point To Average")
+        self.poi_to_avg_buttton.clicked.connect(self.on_point_to_average)
+        self.poi_to_avg_buttton.setToolTip(point_to_average.point_to_average.__doc__)
 
         self.fre_trf_button = QtWidgets.QPushButton("Freeze Transforms")
         self.fre_trf_button.clicked.connect(self.on_freeze_transforms)
         self.fre_trf_button.setToolTip(freeze_transforms.freeze_transforms.__doc__)
 
+
+        # -------------------
+        # Selection & Cleanup
+        # ------------------
+        
+        self.sel_hie_button = QtWidgets.QPushButton("Select Hierarchy")
+        self.sel_hie_button.clicked.connect(self.on_select_hierarchy)
+        self.sel_hie_button.setToolTip(select_hierarchy.select_hierarchy.__doc__)
+     
+        self.del_his_button = QtWidgets.QPushButton("Delete History")
+        self.del_his_button.clicked.connect(self.on_delete_history)
+        self.del_his_button.setToolTip(delete_history.delete_history.__doc__)
+
+        # ---------------------
+        # Joint Operations Grid
+        # ---------------------
+
         self.show_lra_button = QtWidgets.QPushButton("Toggle LRA")
         self.show_lra_button.clicked.connect(self.on_toggle_lra)
         self.show_lra_button.setToolTip(toggle_lra.toggle_lra.__doc__)
+
+        self.joint_zso_button = QtWidgets.QPushButton("Joint ZSO")
+        self.joint_zso_button.clicked.connect(self.on_joint_zso)
+        self.joint_zso_button.setToolTip(joint_zso.joint_zso.__doc__)
 
         # --------------
         # Create Locator
@@ -139,19 +153,26 @@ class MToolboxUI(QtWidgets.QDialog):
 
         main_layout.addLayout(create_joints_layout)
 
-        # Snaps Widget
-        snaps_layout = QtWidgets.QHBoxLayout()
-        snaps_layout.addWidget(self.sta_button)
-        snaps_layout.addWidget(self.stp_button)
+        # Snaps/Spatial Operation Grid
+        snaps_layout = QtWidgets.QGridLayout()
+        snaps_layout.addWidget(self.sta_button, 0, 0)
+        snaps_layout.addWidget(self.poi_to_avg_buttton, 0, 1)
+        snaps_layout.addWidget(self.stp_button, 1, 0)
+        snaps_layout.addWidget(self.fre_trf_button, 1, 1)
 
         main_layout.addLayout(snaps_layout)
 
-        # Joints Operations
+        # Selection & Cleanup Grid
+        selections_layout = QtWidgets.QGridLayout()
+        selections_layout.addWidget(self.sel_hie_button, 0, 0)
+        selections_layout.addWidget(self.del_his_button, 0, 1)
+
+        main_layout.addLayout(selections_layout)
+
+        # Joints Operations Grid
         jo_layout = QtWidgets.QGridLayout()
-        jo_layout.addWidget(self.sel_hie_button, 0, 0)
-        jo_layout.addWidget(self.del_his_button, 0, 1)
-        jo_layout.addWidget(self.fre_trf_button, 1, 0)
-        jo_layout.addWidget(self.show_lra_button, 1, 1)
+        jo_layout.addWidget(self.show_lra_button, 0, 0)
+        jo_layout.addWidget(self.joint_zso_button, 0, 1)
 
         main_layout.addLayout(jo_layout)
 
@@ -214,6 +235,16 @@ class MToolboxUI(QtWidgets.QDialog):
         import importlib
         import mtoolbox.tools.create_locator as create_locator
         create_locator.create_locator()
+    
+    def on_joint_zso(self):
+        import importlib
+        import mtoolbox.tools.joint_zso as joint_zso
+        joint_zso.joint_zso()
+
+    def on_point_to_average(self):
+        import importlib
+        import mtoolbox.tools.point_to_average as point_to_average
+        point_to_average.point_to_average()
 
 
 # -------
