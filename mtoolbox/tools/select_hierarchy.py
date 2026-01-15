@@ -8,7 +8,5 @@ def select_hierarchy():
     """
 
     selection = get_selection("Select Hierarchy")
-    if not selection:
-        return
-    
-    cmds.select(hierarchy=True)
+    if selection:
+        cmds.select(selection, hierarchy=True)

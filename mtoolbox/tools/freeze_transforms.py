@@ -9,7 +9,5 @@ def freeze_transforms():
     """
 
     selection = get_selection("Freeze Transforms")
-    if not selection:
-        return
-    
-    cmds.makeIdentity(a=True, t=True, r=True, s=True, pn=True)
+    if selection:       
+        cmds.makeIdentity(selection, a=True, t=True, r=True, s=True, pn=True)

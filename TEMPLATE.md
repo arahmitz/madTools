@@ -12,9 +12,7 @@ def tool_name():
     """
 
     selection = get_selection("Operation")
-    if not selection:
-        return
-    
-    # Tool logic here
-    # cmds.command()
+    if selection:
+        # Command here
+        # cmds.command()
 ```

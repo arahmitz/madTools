@@ -8,7 +8,5 @@ def toggle_lra():
     """
 
     selection = get_selection("Toggle LRA")
-    if not selection:
-        return
-    
-    cmds.toggle(la=True)
+    if selection:
+        cmds.toggle(selection, la=True)
