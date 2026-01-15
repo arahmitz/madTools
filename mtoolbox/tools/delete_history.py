@@ -9,7 +9,6 @@ def delete_history():
     """
 
     selection = get_selection("Delete History")
-    if not selection:
-        return
     
-    cmds.delete(all=True, constructionHistory=True)
+    if selection:
+        cmds.delete(selection, constructionHistory=True)
