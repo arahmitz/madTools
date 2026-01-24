@@ -1,9 +1,9 @@
-# mToolbox - Templates
+# madTools - Templates
 
 ## One Command Tool
 ```python
 import maya.cmds as cmds
-from mtoolbox.utils.selection import get_selection
+from madtools.utils.selection import get_selection
 
 def tool_name():
     """
