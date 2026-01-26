@@ -41,11 +41,12 @@ madTools has two modes:
   - Creates keyframes every 10 frames from current startTime to current endTime to help with creation of RangeOfMotion animation
 
 ## Installation: 
-1. Clone or download this repository
-2. Copy the `madtools` folder into your `maya/####/scripts/` folder
-3. Drag and drop `install_ui.py` (for UI version) or `install_shelf.py` (for shelf version)
-4. If UI selected - a new button will appear on your shelf, 
-if shelf selected - a new shelf called `madTools` with buttons will appear
+1. Go to [Release](https://github.com/arahmitz/madTools/releases) page
+2. Download the latest release `.zip` file
+3. Extract the `madtools` folder into your `maya/####/scripts/` folder
+4. Drag and drop `install_ui.py` (for UI version) or `install_shelf.py` (for shelf version)
+5. If UI selected - a new button will appear on your shelf, 
+if shelf selected - a new shelf called `madTools` with buttons will appear on current shelf
 
 ## Notes: 
 - Icons are installed automatically in `maya/####/prefs/icons/madtools`
@@ -64,8 +65,11 @@ from madtools.tools.create_joints import create_joints
 create_joints(3, 'joint', True)",
 ```
 You can change `create_joints(NUMBER_OF_JOINTS,'NAME', AFFIX)`
+
 `NUMBER_OF_JOINTS` -> integer, min 1
+
 `'NAME'` -> string, must be in quotes
+
 `AFFIX` -> `True` or `False`
 
 ## Credits
