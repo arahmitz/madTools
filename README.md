@@ -63,13 +63,13 @@ Right-click the **CRT JNT** shelf button -> **Edit**
 from madtools.tools.create_joints import create_joints
 create_joints(3, 'joint', '', True)",
 ```
-You can change `create_joints(NUMBER_OF_JOINTS,'NAME', `AFFIX`, ADD_END)`
+You can change `create_joints(NUMBER_OF_JOINTS,'NAME', 'AFFIX', ADD_END)`
 
 `NUMBER_OF_JOINTS` -> integer, min 1
 
 `'NAME'` -> string, must be in quotes
 
-`'AFFIX'` -> strng, must be in quotes, defaults as '' (blank)
+`'AFFIX'` -> string, must be in quotes, defaults as '' (blank)
 
 `ADD_END` -> `True` or `False`
 
