@@ -24,7 +24,7 @@ class madtoolsUI(QtWidgets.QDialog):
     """
     def __init__(self, parent=None):
         super(madtoolsUI, self).__init__(parent)
-        self.setWindowTitle("madTools v.1.0.0")
+        self.setWindowTitle("madTools v.1.1.0")
         
         # -------------
         # Window Layout
@@ -53,6 +53,8 @@ class madtoolsUI(QtWidgets.QDialog):
         # Name Row
         create_joints_input_label = QtWidgets.QLabel("Input name:")
         self.create_joints_input_lineedit = QtWidgets.QLineEdit()
+        create_joints_affix_label = QtWidgets.QLabel("Affix:")
+        self.create_joints_affix_lineedit = QtWidgets.QLineEdit()
         create_joints_input_checklabel = QtWidgets.QLabel("End label:")
         self.create_joints_input_checkbox = QtWidgets.QCheckBox()
 
@@ -140,6 +142,7 @@ class madtoolsUI(QtWidgets.QDialog):
         cj_name_layout = QtWidgets.QHBoxLayout()
         cj_name_layout.addWidget(create_joints_input_label)
         cj_name_layout.addWidget(self.create_joints_input_lineedit)
+        cj_name_layout.addWidget(self.create_joints_affix_lineedit)
         cj_name_layout.addWidget(create_joints_input_checklabel)
         cj_name_layout.addWidget(self.create_joints_input_checkbox)
         create_joints_layout.addLayout(cj_name_layout)
@@ -204,9 +207,10 @@ class madtoolsUI(QtWidgets.QDialog):
         # Gets values from widgets
         joint_count = self.create_joints_chainlen_slider.value()
         base_name = self.create_joints_input_lineedit.text()
-        add_affix = self.create_joints_input_checkbox.isChecked()
+        affix = self.create_joints_affix_lineedit.text()
+        add_end = self.create_joints_input_checkbox.isChecked()
 
-        tools.create_joints(joint_count, base_name, add_affix)
+        tools.create_joints(joint_count, base_name, affix, add_end)
     
     def on_snap_to_parent(self):
         import importlib
@@ -275,5 +279,3 @@ def show_ui():
 
     win = madtoolsUI(parent=maya_parent)
     win.show()
-
-show_ui()

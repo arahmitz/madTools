@@ -22,7 +22,7 @@ def onMayaDroppedPythonFile(*args):
     buttons_to_add = [
         {
             "annotation": "Create Joints",
-            "command": "from madtools.tools.create_joints import create_joints; create_joints(3, 'joint', True)",
+            "command": "from madtools.tools.create_joints import create_joints; create_joints(3, 'joint', '', True)",
             "image": "madtools/create_joints.png"
         },
         {

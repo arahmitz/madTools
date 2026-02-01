@@ -1,4 +1,4 @@
-# madTools ![Version](https://img.shields.io/badge/version-1.0.0-blue)
+# madTools ![Version](https://img.shields.io/badge/version-1.1.0-blue)
 
 
 ![madTools v.1.0 UI](/madtools/assets/screenshots/toolbox_ui.png)
@@ -61,15 +61,17 @@ If you're using the shelf option and want to edit the **CRT JNT** button:
 Right-click the **CRT JNT** shelf button -> **Edit**
 ```python
 from madtools.tools.create_joints import create_joints
-create_joints(3, 'joint', True)",
+create_joints(3, 'joint', '', True)",
 ```
-You can change `create_joints(NUMBER_OF_JOINTS,'NAME', AFFIX)`
+You can change `create_joints(NUMBER_OF_JOINTS,'NAME', `AFFIX`, ADD_END)`
 
 `NUMBER_OF_JOINTS` -> integer, min 1
 
 `'NAME'` -> string, must be in quotes
 
-`AFFIX` -> `True` or `False`
+`'AFFIX'` -> strng, must be in quotes, defaults as '' (blank)
+
+`ADD_END` -> `True` or `False`
 
 ## Credits
 
