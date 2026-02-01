@@ -53,7 +53,6 @@ class madtoolsUI(QtWidgets.QDialog):
         # Name Row
         create_joints_input_label = QtWidgets.QLabel("Input name:")
         self.create_joints_input_lineedit = QtWidgets.QLineEdit()
-        create_joints_affix_label = QtWidgets.QLabel("Affix:")
         self.create_joints_affix_lineedit = QtWidgets.QLineEdit()
         create_joints_input_checklabel = QtWidgets.QLabel("End label:")
         self.create_joints_input_checkbox = QtWidgets.QCheckBox()
