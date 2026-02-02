@@ -2,10 +2,10 @@ import maya.cmds as cmds
 
 def create_joints(joint_count, base_name, affix, add_end):
     """
-    Creates a chain with zero-ed JO of user selected length and name. Selects the first joint at the end.
+    Creates a chain with zero-ed JO of user selected length and name in +X. Deselects joint afterwards for faster parenting.
     """
+
     spacing = 3
-    root_joint = None
     base_name = (base_name or 'joint').strip() # strips to remove any white characters, etc
     affix = (affix or '').strip() # strips to remove any white characters, etc
 
@@ -19,12 +19,9 @@ def create_joints(joint_count, base_name, affix, add_end):
 
         if affix:
             joint_name += affix
-        
-        if joint == 0:
-            root_joint = joint_name
 
         cmds.joint(name=joint_name, p=(joint * spacing, 0, 0))
     
-    # Select root at the end
+    # Clear select to make repeated chains easier
     cmds.select(clear=True)
-    cmds.select(root_joint)
+
